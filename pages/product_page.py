@@ -1,5 +1,8 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
+import pytest
+import time
+
 
 class ProductPage(BasePage):
 
@@ -10,10 +13,13 @@ class ProductPage(BasePage):
         product_name = self.browser.find_element_by_css_selector(".product_main h1")
         return product_name.text
 
+
+
     def add_product_to_cart(self):
         add_to_cart_button = self.browser.find_element_by_css_selector(".btn-add-to-basket")
         add_to_cart_button.click()
         self.solve_quiz_and_get_code()
+
 
     def should_be_success_message(self):
         add_to_basket_message = self.browser.find_element_by_xpath("//div[@class='alertinner ']/strong").text
