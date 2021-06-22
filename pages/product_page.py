@@ -9,12 +9,12 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.BASKET_BUTTON), "There is no 'add to cart'   button"
 
     def get_name_of_product(self):
-        product_name = self.browser.find_element_by_css_selector(".product_main h1")
+        product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
         return product_name.text
 
 
     def add_product_to_cart(self):
-        add_to_cart_button = self.browser.find_element_by_css_selector(".btn-add-to-basket")
+        add_to_cart_button = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
         add_to_cart_button.click()
 
 
