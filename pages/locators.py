@@ -18,6 +18,9 @@ class ProductPageLocators():
     BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success")
     PRODUCT_NAME = (By.CSS_SELECTOR, ".product_main h1")
+    PRODUCT_COST = (By.CSS_SELECTOR, ".product_main p:nth-child(2)")
+    BASKET_COST = (By.CSS_SELECTOR, ".basket-mini")
+    ADD_TO_BASKET_MES = (By.XPATH, "//div[@class='alertinner ']/strong")
 
 
 class BasePageLocators():
