@@ -1,6 +1,5 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
-import pytest
 
 
 class ProductPage(BasePage):
@@ -23,13 +22,13 @@ class ProductPage(BasePage):
 
 
     def should_be_success_message(self):
-        add_to_basket_message = self.browser.find_element_by_xpath("//div[@class='alertinner ']/strong").text
+        add_to_basket_message = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_MES).text
         assert add_to_basket_message == self.get_name_of_product(), "Wrong product was added"
 
 
     def cost_of_product(self):
-        product_cost = self.browser.find_element_by_css_selector(".product_main p:nth-child(2)").text
-        basket_cost = self.browser.find_element_by_css_selector(".basket-mini").text
+        product_cost = self.browser.find_element(*ProductPageLocators.PRODUCT_COST).text
+        basket_cost = self.browser.find_element(*ProductPageLocators.BASKET_COST).text
         assert product_cost == basket_cost.split()[2], "The prices are not equal"
 
 
